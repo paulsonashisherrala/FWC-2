@@ -18,8 +18,8 @@ import shlex
 #end if
 
 B = np.array([0,0]).reshape(-1,1)#B(0,0)Origin
-C = np.array([6,0]).reshape(-1,1)#C(6,0) on same axis 
-l = 6 #length of BC
+l = 6 #common length for all sides  
+C = np.array([l,0]).reshape(-1,1)#C(6,0) on same axis 
 D = np.array([0,l]).reshape(-1,1) #(X=0,Y=l) taking 'l' as Y-coordinate
 A = np.array([l,l]).reshape(-1,1) #(X=l,Y=l) taking 'l'as x,y coordinate
 M = midpoint(A,B) #midpoint of (A,B) 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.10)  21 DEC 2023 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.10)  21 DEC 2023 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1410,10 +1410,7 @@ Non-PDF special ignored!
 <special> ps:0.8 setlinewidth 0 setgray
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/Screenshot.png>]
 (./tables/input_params.tex) (./tables/output_params.tex)
-
-LaTeX Warning: Reference `fig:fig-2' on page 2 undefined on input line 43.
-
-<figs/python_plot.png, id=33, 462.528pt x 346.896pt>
+<figs/python_plot.png, id=34, 462.528pt x 346.896pt>
 File: figs/python_plot.png Graphic file (type png)
 <use figs/python_plot.png>
 Package pdftex.def Info: figs/python_plot.png  used on input line 46.
@@ -1432,9 +1429,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3 <./figs/python_plot.png>] (./solution_mc.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `solution_mc.out' has not changed.
@@ -1447,7 +1441,7 @@ Here is how much of TeX's memory you used:
  49166 multiletter control sequences out of 15000+600000
  476139 words of font info for 57 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 218i,16n,217p,452b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 218i,16n,217p,452b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1457,10 +1451,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
 ype1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/symbols/msam10.pfb>
-Output written on solution_mc.pdf (3 pages, 129360 bytes).
+Output written on solution_mc.pdf (3 pages, 129209 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  15 named destinations out of 1000 (max. 500000)
  39 words of extra memory for PDF output out of 10000 (max. 10000000)
 

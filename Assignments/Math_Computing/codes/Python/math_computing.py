@@ -75,10 +75,10 @@ cos_theta_A = dot_A / norm_A
 angle_BCA =np.round(np.degrees(np.arccos(cos_theta_A)),2)
 #print("angle_BCA = ",angle_BCA)
 
-CB = LA.norm(B-C)   #length of AD  
-BC = LA.norm(C-B)   #length of AC  
-DB = LA.norm(B-D)   #length of BM
-AC = LA.norm(C-A)   #length of AM
+CB = LA.norm(B-C)   #length of CB
+BC = LA.norm(C-B)   #length of BC  
+DB = LA.norm(B-D)   #length of DB
+AC = LA.norm(C-A)   #length of AC
 #print("CB = {} \n BC = {} \n DB = {} \n AC ={}".format(CB,BC,DB,AC))
 
 

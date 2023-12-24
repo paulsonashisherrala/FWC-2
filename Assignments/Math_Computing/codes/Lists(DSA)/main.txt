@@ -1,0 +1,4 @@
+△ AMC ≅ △ BMD (congruent By SAS Congruency)
+△ DBC IS right angled At ∠ B
+△ DBC ≅ △ ACB (congruent By SAS Congruency)
+CM = AB/2

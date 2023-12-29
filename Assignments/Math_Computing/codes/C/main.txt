@@ -1,3 +1,17 @@
+CD: 8.48528
+BD: 6.00000
+BC: 6.00000
+AD: 6.00000
+AC: 6.00000
+AB: 8.48528
+DM: 4.24264
+CM: 4.24264
+BM: 4.24264
+AM: 4.24264
+∠ CMA = 90.000000 
+∠ BMD = 90.000000 
+∠ DBC = 90.000000 
+∠ BCA = 90.000000 
 △ AMC ≅ △ BMD (congruent By SAS Congruency)
 △ DBC IS right angled At ∠ B
 △ DBC ≅ △ ACB (congruent By SAS Congruency)

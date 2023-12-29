@@ -453,7 +453,12 @@ else if(m==3){
 for(i=0;i<m;i++)
       det += a[0][i]*(a[1][(i+1)%3]*a[2][(i+2)%3] - a[1][(i+2)%3]*a[2][(i+1)%3]);
  
-   for(i=0;i<m;i++){
+ //inner product 
+double Matdot(double **a, double ** b, int m){
+        double **temp= Matmul(transposeMat(a,m,1),b,1,m,1);
+        return temp[0][0];
+}
+  for(i=0;i<m;i++){
       for(j=0;j<m;j++)
 	   c[i][j]=((a[(i+1)%3][(j+1)%3] * a[(i+2)%3][(j+2)%3]) - (a[(i+1)%3][(j+2)%3]*a[(i+2)%3][(j+1)%3]))/det;
    }
@@ -522,3 +527,4 @@ double angle(double base,double adjacent,double opposite)
 // printf("CMA = %lf \n",acos(CMA));
 return acos(angle) * (180.0 / M_PI);            
 }
+

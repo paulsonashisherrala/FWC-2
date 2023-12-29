@@ -3,90 +3,61 @@
 #include <math.h>
 #include "libs/matfun.h"
 
-int  main()
-{
+int main() {
+	FILE *fp; //file pointer
+	double **vert;
+	double **A,**B,**C,**D,**M; //declaring matrices names
+	double DM,CM,BM,AM,AC,BD,BC,CD,AB,CB; //side lengths
+	int m =2,k=4, n=1; // (mxn),(mxk) matrix
+	double l = 6; //length of a side 
+	double CMA,BMD,DBC,BCA;//angles of the triangle
 
-FILE *fp; //file pointer
-double **A,**B,**C,**D,**M; //declaring matrices names
-double DM,CM,BM,AM,AC,BD,BC,CD,AB,CB; //side lengths
-int m =2, n=1; // (mxn) matrix
-double l = 6; //length of a side 
-double CMA,BMD,DBC,BCA;
+// creating Matrix MAT and loading MATRIX from file
+vert = createMat(m, k);
+vert = loadMat("vertices.dat", m, k);
 
-//creating Matrix B and loading MATRIX from file 
-B = createMat(m,n);
-B = loadMat("B.dat",m, n);
+// Extracting vertices
+A = Matcol(vert, m, 0);
+B = Matcol(vert, m, 1);
+C = Matcol(vert, m, 2);
+D = Matcol(vert, m, 3);
 
-//creating Matrix C and loading Matrix from file
-C = createMat(m,n);
-C = loadMat("C.dat",m,n);
+// mid-point(A,B)
+M = Matsec(A, B, m, n);
 
-//creating Matrix A and loading Matrix from file
-A =createMat(m,n);
-A =loadMat("A.dat",m, n);
-
-//creating Matrix D and loading Matrix from file
-D=createMat(m,n);
-D =loadMat("D.dat",m,n);
-
-
-//mid-point(A,B)
-M = Matsec(A,B,m,n);
-
-
-//printing the matrices
-/*
-printMat(B,2,1);
-printMat(C,2,1);
-printMat(A,2,1);
-printMat(D,2,1);
-printMat(M,2,1);
-printf("l = %lf \n",l); 
-*/
-
-
-//lengths of All sides 
-DM = Matnorm(Matsub(D,M,m,n),m);
-CM = Matnorm(Matsub(C,M,m,n),m);
-BM = Matnorm(Matsub(B,M,m,n),m);
-AM = Matnorm(Matsub(A,M,m,n),m);
-AC = Matnorm(Matsub(A,C,m,n),m);
-BD = Matnorm(Matsub(B,D,m,n),m);
-BC = Matnorm(Matsub(B,C,m,n),m);
-CD = Matnorm(Matsub(C,D,m,n),m);
-AB = Matnorm(Matsub(A,B,m,n),m);
-CB = Matnorm(Matsub(C,B,m,n),m);
-
-
-//printing side lengths
-/*
-printf("DM = %lf \n",DM);
-printf("CM = %lf \n",CM);
-printf("BM = %lf \n",BM);
-printf("AM = %lf \n",AM);
-printf("AC = %lf \n",AC);
-printf("BD = %lf \n",BD);
-printf("BC = %lf \n",BC);
-printf("CD = %lf \n",CD);
-printf("AB = %lf \n",AB);
-printf("CB = %lf \n",CB);
-*/
+//Define side names and corresponding matrices
+char *sideNames[] = { "AM", "BM", "CM", "DM", "AB","AC", "AD", "BC", "BD", "CD"};//arr[0]=AM,arr[1]=BM,arr[2]=CM,arr[3]=DM,arr[4]=AB,arr[5]=AC,arr[6]=AD,arr[7]=BC,arr[8]=BD,arr[9]=CD
+double ***matrices[] = {&M ,&A, &B,&C,&D};
+    
+    int z=0;
+    double arr[100];
+    // Print side lengths using a loop
+    for (int i = 0; i <= 4; i++){ 
+	    for (int j=0;j<=4;j++){
+		    if(i<j){
+         arr[z] = Matnorm(Matsub(*matrices[i], *matrices[j], m, n), m);
+        z++;
+    }}}
+   for (int l=z-1;l>=0;l--){
+	printf("%s: %.5f\n", sideNames[l],arr[l]);
+   }
 
 //finding the angles
-CMA =angle(CM,AM,AC);
-BMD =angle(BM,DM,BD);
-DBC =angle(BC,BD,CD);
-BCA =angle(BC,AC,AB);
+CMA =angle(arr[2],arr[0],arr[5]);
+BMD =angle(arr[1],arr[3],arr[8]);
+DBC =angle(arr[7],arr[6],arr[9]);
+BCA =angle(arr[7],arr[5],arr[4]);
 
-/*
+
+//printing the angles
 printf("∠ CMA = %lf \n",CMA);
 printf("∠ BMD = %lf \n",BMD);
 printf("∠ DBC = %lf \n",DBC);
 printf("∠ BCA = %lf \n",BMD);
-*/
+
 
 //printf("1.For proving △ AMC ≅ △ BMD \n");
- if ((DM == CM) && (BM == AM) && (CMA == BMD)) {
+ if ((arr[3] == arr[2]) && (arr[1] == arr[0]) && (CMA == BMD)) {
         printf("△ AMC ≅ △ BMD (congruent By SAS Congruency)\n");
     } else {
         printf("△ AMC ≇ △ BMD (is NOT congruent)\n");
@@ -100,17 +71,18 @@ printf("∠ BCA = %lf \n",BMD);
     }
 
 //printf("3.△ DBC ≅ △ ACB \n");
-    if (CB == BC && BD == AC && DBC == BCA) {
-    	printf("△ DBC ≅ △ ACB (congruent By SAS Congruency)\n");
+    if (arr[7]== arr[7] && arr[8] == arr[5] && DBC == BCA) {
+        printf("△ DBC ≅ △ ACB (congruent By SAS Congruency)\n");
     } else {
         printf("△ DBC ≇ △ ACB (is NOT congruent)\n");
     }
 
 //printf("4.CM = AB/2 \n");
-    if (CM == AB / 2 || 2 * CM == AB) {
+    if (arr[2] == arr[4] / 2 || 2 * arr[2] == arr[4]) {
         printf("CM = AB/2\n");
     } else {
         printf("CM ≠ AB/2\n");
     }
-return 0;
+    return 0;
 }
+

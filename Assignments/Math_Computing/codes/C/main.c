@@ -7,7 +7,7 @@ int main() {
 	FILE *fp; //file pointer
 	double **vert;
 	double **A,**B,**C,**D,**M; //declaring matrices names
-	double DM,CM,BM,AM,AC,BD,BC,CD,AB,CB; //side lengths
+	//double DM,CM,BM,AM,AC,BD,BC,CD,AB,CB; //side lengths
 	int m =2,k=4, n=1; // (mxn),(mxk) matrix
 	double l = 6; //length of a side 
 	double CMA,BMD,DBC,BCA;//angles of the triangle

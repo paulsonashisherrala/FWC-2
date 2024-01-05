@@ -53,7 +53,7 @@ BCA =angle(arr[7],arr[5],arr[4]);
 printf("∠ CMA = %lf \n",CMA);
 printf("∠ BMD = %lf \n",BMD);
 printf("∠ DBC = %lf \n",DBC);
-printf("∠ BCA = %lf \n",BMD);
+printf("∠ BCA = %lf \n",BCA);
 
 
 //printf("1.For proving △ AMC ≅ △ BMD \n");
